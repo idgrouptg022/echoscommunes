@@ -1,0 +1,27 @@
+.table-default th:first-of-type {
+    width: 10%;
+}
+
+.table-default th:nth-of-type(2) {
+    width: 35%;
+}
+
+.table-default th:nth-of-type(3) {
+    width: 35%;
+}
+
+.table-default th:last-of-type {
+    width: 20%;
+}
+
+.register-user-button {
+    margin-block: 1.5rem;
+}
+
+.register-user-button a {
+    text-decoration: none;
+    color: white;
+    background-color: var(--blue);
+    padding: 0.8rem 1rem;
+    border-radius: .3rem;
+}

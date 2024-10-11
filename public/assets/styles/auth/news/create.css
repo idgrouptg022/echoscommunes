@@ -1,0 +1,144 @@
+.page-header-breadcrumb {
+    list-style: none;
+    display: flex;
+    column-gap: .5rem;
+}
+
+.breadcrumb-item {
+    font-family: montserratBold;
+    font-size: .9rem;
+    color: #555;
+}
+
+.breadcrumb-item a {
+    color: #0d5cbd;
+    text-decoration: none;
+}
+
+.breadcrumb-item:not(:last-of-type)::after {
+    content: ' > ';
+    margin-left: 0.5rem;
+}
+
+.addNewForm, .editForm {
+    margin-block: 3rem;
+}
+
+.form-title {
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    background-color: var(--secondary-600);
+    padding: .8rem;
+}
+
+.editForm .form-title {
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-size: .8rem;
+    background-color: var(--secondary-600);
+    padding: .8rem;
+}
+
+.form-title span {
+    font-family: montserratBlack;
+    font-size: 1.2rem;
+}
+
+.editForm .form-title span {
+    font-family: montserratBlack;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.3rem;
+}
+
+.form-group label{
+    display: block;
+    font-size: .89rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: .8rem .5rem;
+    border: 1.5px solid #eee;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-family: montserrat;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: .8rem .5rem;
+    border: 1.5px solid #eee;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-family: montserrat;
+}
+
+.actualiteBtnSubmit {
+    all: unset;
+    padding-block: 1.1rem;
+    border-radius: .5rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-family: montserratBold;
+    letter-spacing: .1rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.delete-actualite {
+    background-color: var(--danger);
+    color: white;
+    text-decoration: none;
+    padding: .8rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.form-flex-container {
+    display: flex;
+    column-gap: 1.8rem;
+}
+
+.form-flex-container .image-container {
+    flex: 1 1 40%;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.form-flex-container .form-input-container {
+    flex: 1 1 60%;
+    width: 100%;
+}
+
+select {
+    padding: .8rem;
+    border-radius: .5rem;
+    background-color: var(--light);
+    width: 100%;
+    font-family: montserrat;
+}
+
+/* #deleteForm {
+    display: none;
+} */

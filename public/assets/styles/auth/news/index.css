@@ -1,0 +1,155 @@
+.sub-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.category-name-form {
+    flex: 1 1 40%;
+}
+
+.form__group.flex {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.form__group.flex span {
+    width: 100%;
+}
+
+.form__group.flex button {
+    all: unset;
+    background-color: var(--warning-400);
+    font-family: montserratBold;
+    height: fit-content;
+    align-self: flex-end;
+    padding: .8rem 1.5rem;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.delete-category-container {
+    flex: 1 1 35%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-category {
+    text-decoration: none;
+    background-color: var(--danger-700);
+    color: white;
+    width: fit-content;
+    padding: .8rem 1.5rem;
+    border-radius: .3rem;
+}
+
+.addNewsButton {
+    text-decoration: none;
+    background-color: #0d5cbd;
+    color: white;
+    padding: .8rem 1.5rem;
+}
+
+.table-container {
+    margin-block: 1.5rem;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.table-custom thead {
+    background-color: #131313;
+    color: white;
+}
+
+.table-custom thead th {
+    padding: .8rem;
+    font-size: .9rem;
+    text-align: center;
+}
+
+.table-custom thead th:first-of-type,
+.table-custom td:first-of-type {
+    width: 5%;
+}
+
+.table-custom thead th:nth-of-type(2),
+.table-custom td:nth-of-type(2) {
+    width: 10%;
+}
+
+.table-custom thead th:nth-of-type(4),
+.table-custom td:nth-of-type(4) {
+    width: 20%;
+}
+
+.table-custom thead th:nth-of-type(5),
+.table-custom td:nth-of-type(5) {
+    width: 10%;
+}
+
+.table-custom thead th:nth-of-type(6),
+.table-custom td:nth-of-type(6) {
+    width: 15%;
+}
+
+.table-custom td {
+    padding: .8rem;
+    text-align: center;
+}
+
+.edit-new {
+    text-decoration: none;
+    background-color: var(--warning-500);
+    font-size: .8rem;
+    text-align: center;
+    color: #131313;
+    padding: .3rem .5rem;
+    font-weight: bold;
+}
+
+.show-new {
+    text-decoration: none;
+    background-color: var(--blue);
+    font-size: .8rem;
+    text-align: center;
+    color: white;
+    padding: .3rem .5rem;
+}
+
+.deleteModalCategory h2 {
+    color: var(--danger-700);
+    margin-bottom: 1.3rem;
+}
+
+.deleteModalCategory p {
+    margin-block: 1rem;
+}
+
+.btn {
+    all: unset;
+    padding: .5rem .9rem;
+    font-family: montserrat;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: var(--danger-700);
+    color: white;
+    margin-right: 1rem;
+}
+
+.btn-outline-danger {
+    border: 1px solid var(--danger-700);
+    color: var(--danger-700);
+}
+

@@ -1,0 +1,123 @@
+.register-container {
+    padding-block: 2rem;
+    padding-inline: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: .8rem;
+    padding: 1rem 1.2rem;
+}
+
+.register-form-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.register-form-header .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 7rem;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    padding: 1rem;
+}
+
+.logo-container img {
+    width: 100%;
+}
+
+
+.register-form-header h2 {
+    font-size: 2rem;
+    font-family: montserratBold;
+}
+
+.register-form-header p {
+    font-size: .9rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.form-group {
+    margin-bottom: .5rem;
+}
+
+.form-group.input-group {
+    position: relative;
+}
+
+.form-group.input-group i {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #111;
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.register-input {
+    width: 100%;
+    font-size: 1rem;
+    padding: .8rem .5rem;
+    border: 1px solid #ccc;
+    border-radius: .3rem;
+    font-family: montserrat;
+}
+
+.register-input::placeholder {
+    opacity: .8;
+}
+
+.form-button {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.register-button {
+    all: unset;
+    width: 100%;
+    padding-block: .8rem;
+    background-color: var(--primary);
+    text-align: center;
+    font-family: montserratBold;
+    color: white;
+    border-radius: .5rem;
+    letter-spacing: .1rem;
+    cursor: pointer;
+}
+
+.form-info {
+    margin-bottom: 1rem;
+}
+
+.form-info a {
+    text-decoration: none;
+    color: var(--blue);
+    font-family: montserratBold;
+}
+
+@media only screen and (min-width: 992px) {
+    .register-form {
+        width: 40%;
+    }
+
+    .form-group {
+        margin-bottom: .8rem;
+    }
+}
+

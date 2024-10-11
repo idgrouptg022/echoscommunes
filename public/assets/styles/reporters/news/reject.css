@@ -1,0 +1,94 @@
+.page-header-breadcrumb {
+    list-style: none;
+    display: flex;
+    column-gap: .5rem;
+}
+
+.breadcrumb-item {
+    font-family: montserratBold;
+    font-size: .9rem;
+    color: #555;
+}
+
+.breadcrumb-item a {
+    color: #0d5cbd;
+    text-decoration: none;
+}
+
+.breadcrumb-item:not(:last-of-type)::after {
+    content: ' > ';
+    margin-left: 0.5rem;
+}
+
+.reject-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+    margin-top: 3.5rem;
+}
+
+.reject-item {
+    border: 3px solid var(--danger-600);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+/* .reject-header {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.reject-left {
+    display: flex;
+    row-gap: .3rem;
+    flex-direction: column;
+}
+
+.reject-id {
+    font-size: .8rem;
+}
+
+.reject-name {
+    font-weight: 600;
+}
+
+.reject-phone {
+    font-size: .8rem;
+}
+
+.reject-body {
+    margin-top: 1.3rem;
+    font-size: .9rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.primary__link__btn {
+    background-color: var(--warning-500);
+}
+
+.reject-category {
+    font-size: .8rem;
+    font-style: italic;
+}
+
+.reject-category::before {
+    content: "- ";
+}
+
+.reject-date {
+    font-size: .7rem;
+}
+
+.reject-title {
+    font-size: 1.2rem;
+    font-family: montserratBold;
+}
+
+.reject-footer {
+    margin-top: 1.5rem;
+}

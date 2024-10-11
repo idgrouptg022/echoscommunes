@@ -1,0 +1,34 @@
+.table-custom thead th:nth-of-type(5),
+.table-custom td:nth-of-type(5) {
+    width: 20%;
+}
+
+.page-header-breadcrumb {
+    list-style: none;
+    display: flex;
+    column-gap: .5rem;
+}
+
+.breadcrumb-item {
+    font-family: montserratBold;
+    font-size: .9rem;
+    color: #555;
+}
+
+.breadcrumb-item a {
+    color: #0d5cbd;
+    text-decoration: none;
+}
+
+.breadcrumb-item:not(:last-of-type)::after {
+    content: ' > ';
+    margin-left: 0.5rem;
+}
+
+.delete-actualite {
+    background-color: var(--danger);
+    color: white;
+    text-decoration: none;
+    padding: .8rem 1.2rem;
+    border-radius: .5rem;
+}
