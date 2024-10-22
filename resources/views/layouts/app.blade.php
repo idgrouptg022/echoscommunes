@@ -1,3 +1,8 @@
+@php
+    $categories = \App\Models\Category::orderBy('name')->get();
+@endphp
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

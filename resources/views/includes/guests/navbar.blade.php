@@ -15,16 +15,9 @@
             <div class="dropdown__wrapper">
                 <div class="dropdown">
                     <ul class="list-items-with-description">
-                        <li><a href="#">Développement</a></li>
-                        <li><a href="#">Santé</a></li>
-                        <li><a href="#">Education</a></li>
-                        <li><a href="#">Interview</a></li>
-                        <li><a href="#">Portrait</a></li>
-                        <li><a href="#">Economie</a></li>
-                        <li><a href="#">Environnement</a></li>
-                        <li><a href="#">Politique</a></li>
-                        <li><a href="#">Culture</a></li>
-                        <li><a href="#">International</a></li>
+                        @foreach ($categories as $category)
+                            <li><a href="#">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

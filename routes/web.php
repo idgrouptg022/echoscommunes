@@ -6,7 +6,9 @@ use App\Http\Controllers\Auth\NewsController;
 use App\Http\Controllers\Guest\MainController;
 use App\Http\Controllers\Auth\CategoriesController;
 use App\Http\Controllers\Auth\MainController as AuthMainController;
+use App\Http\Controllers\Auth\MessagesController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\ReporterController;
 use App\Http\Controllers\Reporter\MainController as ReporterMainController;
 
@@ -16,6 +18,8 @@ Route::prefix('/')->as('guests:')->group(function () {
     Route::get('a-propos', [MainController::class, "about"])->name('about');
 
     Route::get('contact', [MainController::class, "contact"])->name('contact');
+
+    Route::post('contact', [ContactController::class, "send"])->name('contact:send');
 
     Route::get('inscription', [ReporterController::class, "registerView"])->name('register-view');
 
@@ -107,6 +111,12 @@ Route::middleware("check.auth.user")->prefix('auth/')->as('auth:')->group(functi
         Route::post("{actualite}/rejection", [NewsController::class, "reject"])->name('reject');
 
         Route::delete("{actualite}/destroy", [NewsController::class, "destroy"])->name('destroy');
+    });
+
+    Route::prefix("messages")->as("messages:")->group(function () {
+        Route::get('', [MessagesController::class, "index"])->name('index');
+
+        Route::get('{contact}/show', [MessagesController::class, "show"])->name('show');
     });
 
     Route::prefix('administrateurs/')->as('users:')->group(function () {
