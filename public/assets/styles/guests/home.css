@@ -216,6 +216,7 @@
 .theOne-title {
     text-decoration: underline;
     text-underline-offset: .2rem;
+    color: white;
 }
 
 .theOne-author {

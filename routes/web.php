@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\CategoriesController;
 use App\Http\Controllers\Auth\MainController as AuthMainController;
 use App\Http\Controllers\Auth\MessagesController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Guest\ActualiteController as GuestActualiteController;
 use App\Http\Controllers\Guest\ContactController;
 use App\Http\Controllers\Guest\ReporterController;
 use App\Http\Controllers\Reporter\MainController as ReporterMainController;
@@ -73,6 +74,12 @@ Route::prefix('/')->as('guests:')->group(function () {
 
             Route::patch('{actualite}/edition', [ActualiteController::class, "update"])->name('update');
         });
+    });
+
+    Route::prefix("actualites")->as("actualites:")->group(function () {
+        Route::get("{category}", [GuestActualiteController::class, "index"])->name("index");
+
+        Route::get("{category}/{actualite}", [GuestActualiteController::class, "show"])->name("show");
     });
 });
 
