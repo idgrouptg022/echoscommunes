@@ -64,7 +64,7 @@
                                 <figure class="theOne-image">
                                     <img src="{{ asset('storage/' . $actualite->image) }}" alt="Image d'actualité">
                                     <figcaption>
-                                        <h4 class="theOne-title">{{ $actualite->title }}</h4>
+                                        <a href="#" class="theOne-title"><h4>{{ $actualite->title }}</h4></a>
                                         <div class="theOne-info">
                                             <span class="theOne-author">{{ $actualite->authorable->name }} - </span>
                                             <span class="theOne-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>

@@ -1,0 +1,129 @@
+.actualites-header-container {
+    background-image: url("../../../images/banner-actualites.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 2.5rem 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.actualites-header-cover::after {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    z-index: -1;
+}
+
+.actualites-header-cover h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.actualites-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.actualites-item {
+    flex: 1 1 calc(100% - 1rem);
+    width: 100%;
+    background-color: #fff;
+    border-radius: .5rem;
+}
+
+.actualites-image {
+    width: 100%;
+    aspect-ratio: 2;
+    background-color: #eee;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.actualites-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 2%;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.actualites-content {
+    padding-top: .8rem;
+    padding-inline: .8rem;
+    padding-bottom: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.actualites-sub-header {
+    font-size: .7rem;
+}
+
+.actualites-author {
+    font-size:.8rem;
+    font-family: montserratBold;
+}
+
+.actualites-published-at {
+    color: #999;
+}
+
+.actualites-title {
+    font-size: 1.2rem;
+    font-family: montserratBold;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.actualites-read {
+    display: flex;
+    justify-content: flex-end;
+    margin-block: .7rem;
+}
+
+.actualites-read-btn {
+    text-decoration: none;
+    background-color: var(--blue);
+    color: white;
+    padding: .3rem .8rem;
+    border-radius: .3rem;
+}
+
+@media only screen and (min-width: 992px) {
+    .actualites-list {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        column-gap: 1.5rem;
+        row-gap: 1.5rem;
+    }
+
+    .actualites-item {
+        flex: 0 1 calc(25% - 1rem);
+    }
+
+    .actualites-title {
+        font-size: 1rem;
+    }
+}

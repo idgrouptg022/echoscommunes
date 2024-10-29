@@ -16,7 +16,7 @@
                 <div class="dropdown">
                     <ul class="list-items-with-description">
                         @foreach ($categories as $category)
-                            <li><a href="#">{{ $category->name }}</a></li>
+                            <li><a href="{{ route("guests:actualites:index", $category) }}">{{ $category->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
