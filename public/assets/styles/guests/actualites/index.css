@@ -41,6 +41,7 @@
     width: 100%;
     background-color: #fff;
     border-radius: .5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .actualites-image {
@@ -66,7 +67,6 @@
     padding-bottom: .5rem;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .actualites-sub-header {
@@ -117,10 +117,12 @@
         flex-direction: row;
         column-gap: 1.5rem;
         row-gap: 1.5rem;
+        /* align-items: stretch; */
     }
 
     .actualites-item {
-        flex: 0 1 calc(25% - 1rem);
+        flex: 1 1 calc(24% - .5rem);
+
     }
 
     .actualites-title {

@@ -18,10 +18,10 @@
                                 <h3 class="swiper-content-title">{{ $banner_new->title }}</h3>
                                 <div class="swiper-content-text">
                                     <p>
-                                        {{ $banner_new->description }}
+                                        {!! $banner_new->description !!}
                                     </p>
                                 </div>
-                                <a href="#" class="read-more">Lire plus</a>
+                                <a href="{{ route('guests:actualites:show', [$banner_new->category()->first(), $banner_new]) }}" class="read-more">Lire plus</a>
                             </div>
                         </div>
                     @endforeach
@@ -36,6 +36,10 @@
             </div>
         </div>
     </section>
+
+    @php
+        $author = new \App\Helpers\Author;
+    @endphp
 
     <section class="container">
         @foreach ($newsCategories as $item)
@@ -56,7 +60,7 @@
 
                     <div class="first-news-content">
                         @php
-                            $actualite = $category->news()->latest()->first();
+                            $actualite = $category->news()->latest()->where("status", 1)->first();
                             $actualites = $category->news()->latest()->where("status", 1)->skip(1)->take(3)->get();
                         @endphp
                         <div class="news-content">
@@ -64,9 +68,9 @@
                                 <figure class="theOne-image">
                                     <img src="{{ asset('storage/' . $actualite->image) }}" alt="Image d'actualité">
                                     <figcaption>
-                                        <a href="#" class="theOne-title"><h4>{{ $actualite->title }}</h4></a>
+                                        <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="theOne-title"><h4>{{ $actualite->title }}</h4></a>
                                         <div class="theOne-info">
-                                            <span class="theOne-author">{{ $actualite->authorable->name }} - </span>
+                                            <span class="theOne-author">{{ $author::getName($actualite->authorable) }} - </span>
                                             <span class="theOne-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                             <span class="theOne-comments"><i class="far fa-comment-alt"></i> 0</span>
                                         </div>
@@ -81,15 +85,17 @@
                                             <img src="{{ asset('storage/' . $actualite->image) }}" alt="Image d'actualité">
                                         </figure>
                                         <div class="first-news-text">
-                                            <h4 class="first-news-title">{{ $actualite->title }}</h4>
+                                            <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="first-news-title" >
+                                                <h4>{{ $actualite->title }}</h4>
+                                            </a>
                                             <div class="first-news-info">
-                                                <span class="first-news-author">{{ $actualite->authorable->name }} - </span>
+                                                <span class="first-news-author">{{ $author::getName($actualite->authorable) }} - </span>
                                                 <span class="first-news-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                                 <span class="first-news-comments"><i class="far fa-comment-alt"></i> 0</span>
                                             </div>
                                             <div class="first-news-description">
                                                 <div class="news-text">{!! $actualite->description !!}</div>
-                                                <a href="#" class="news-read-more">Lire plus</a>
+                                                <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="news-read-more">Lire plus</a>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +116,7 @@
 
             @elseif ($loop->iteration == 2)
                 @php
-                    $actualite = $category->news()->latest()->first();
+                    $actualite = $category->news()->latest()->where("status", 1)->first();
                     $actualites = $category->news()->latest()->where("status", 1)->skip(1)->take(4)->get();
                 @endphp
 
@@ -126,9 +132,9 @@
                             <figure class="second-news-principal-image">
                                 <img src="{{ asset('storage/' . $actualite->image ) }}" alt="">
                                 <figcaption>
-                                    <a href="#" class="principal-title">{{ $actualite->title }}</a>
+                                    <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="principal-title">{{ $actualite->title }}</a>
                                     <div class="principal-info">
-                                        <span class="principal-author">{{ $actualite->authorable->name }} - </span>
+                                        <span class="principal-author">{{ $author::getName($actualite->authorable) }} - </span>
                                         <span class="principal-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                         <span class="principal-comments"><i class="far fa-comment-alt"></i> 0</span>
                                     </div>
@@ -145,7 +151,7 @@
                                                 <span class="other-news-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                                 <span class="other-news-comments"><i class="far fa-comment-alt"></i> 0</span>
                                             </div>
-                                            <a href="#" class="other-news-title">{{ $actualite->title }}</a>
+                                            <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="other-news-title">{{ $actualite->title }}</a>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -156,7 +162,7 @@
             @elseif ($loop->iteration == 3)
 
                 @php
-                    $actualite = $category->news()->latest()->first();
+                    $actualite = $category->news()->latest()->where("status", 1)->first();
                     $actualites = $category->news()->latest()->where("status", 1)->skip(1)->take(3)->get();
                 @endphp
 
@@ -174,9 +180,9 @@
                                 <img src="{{ asset('storage/' . $actualite->image) }}" alt="Image actualité">
                             </figure>
                             <div class="third-news-principal-info">
-                                <a href="#" class="principal-title">{{ $actualite->title }}</a>
+                                <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="principal-title">{{ $actualite->title }}</a>
                                 <div class="principal-subinfo">
-                                    <span class="principal-author">{{ $actualite->authorable->name }} - </span>
+                                    <span class="principal-author">{{ $author::getName($actualite->authorable) }} - </span>
                                     <span class="principal-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                 </div>
                                 <div class="third-news-description">{!! $actualite->description !!}</div>
@@ -189,9 +195,9 @@
                                         <img src="{{ asset('storage/' . $actualite->image) }}" alt="Image actualité">
                                     </figure>
                                     <div class="third-other-news-info">
-                                        <a href="#" class="third-other-news-title">{{ $actualite->title }}</a>
+                                        <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="third-other-news-title">{{ $actualite->title }}</a>
                                         <div class="third-other-subinfo">
-                                            <span class="third-other-author">{{ $actualite->authorable->name }} - </span>
+                                            <span class="third-other-author">{{ $author::getName($actualite->authorable) }} - </span>
                                             <span class="third-other-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                         </div>
                                         <div class="third-other-description">{!!  $actualite->description !!}</div>
@@ -219,9 +225,9 @@
                                     <img src="{{ asset('storage/' . $actualite->image) }}" alt="Image actualité">
                                 </figure>
                                 <div class="fourth-news-info">
-                                    <a href="#" class="fourth-news-title">{{ $actualite->title }}</a>
+                                    <a href="{{ route('guests:actualites:show', [$category, $actualite]) }}" class="fourth-news-title">{{ $actualite->title }}</a>
                                     <div class="fourth-subinfo">
-                                        <span class="fourth-author">{{ $actualite->authorable->name }} - </span>
+                                        <span class="fourth-author">{{ $author::getName($actualite->authorable) }} - </span>
                                         <span class="fourth-date">{{ \Carbon\Carbon::parse($actualite->created_at)->format("d m, Y") }}</span>
                                     </div>
                                     <div class="fourth-description">{!! $actualite->description !!}</div>

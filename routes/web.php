@@ -117,7 +117,7 @@ Route::middleware("check.auth.user")->prefix('auth/')->as('auth:')->group(functi
 
         Route::post("{actualite}/rejection", [NewsController::class, "reject"])->name('reject');
 
-        Route::delete("{actualite}/destroy", [NewsController::class, "destroy"])->name('destroy');
+        Route::post("{actualite}/destroy", [NewsController::class, "destroy"])->name('destroy');
     });
 
     Route::prefix("messages")->as("messages:")->group(function () {

@@ -44,7 +44,7 @@ class NewsController extends Controller
             ]);
         }
 
-        $fields["image"] = $request->file("image")->store("actualites/$category->name", "public");
+        $fields["image"] = $request->file("image")->store("actualites/$category->slug", "public");
 
         $fields["category_id"] = $category->id;
 
@@ -84,7 +84,7 @@ class NewsController extends Controller
                 Storage::disk("public")->delete($actualite->image);
             }
 
-            $fields["image"] = $request->file("image")->store("actualites/" . $actualite->category->name, "public");
+            $fields["image"] = $request->file("image")->store("actualites/" . $actualite->category->slug, "public");
         }
 
         $actualite->update($fields);

@@ -39,7 +39,6 @@
     </div>
     <form action="{{ route('auth:news:destroy', $actualite) }}" method="post" id="deleteForm" hidden>
         @csrf
-        @method("DELETE")
     </form>
 @endsection
 

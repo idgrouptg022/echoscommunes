@@ -2,6 +2,17 @@
 
 @section('extra-style')
     <link rel="stylesheet" href="{{ asset('assets/styles/guests/actualites/show.css') }}">
+
+    <meta property="og:title" content="{{ $actualite->title }}">
+    <meta property="og:description" content="{{ $actualite->description }}">
+    <meta property="og:image" content="{{ asset('storage/'. $actualite->image) }}">
+    <meta property="og:url" content="{{ route('guests:actualites:show', [$category, $actualite]) }}">
+
+    <meta name="twitter:card" content="{{ $actualite->title }}">
+    <meta name="twitter:title" content="{{ $actualite->title }}">
+    <meta name="twitter:description" content="{{ $actualite->description }}">
+    <meta name="twitter:image" content="{{ asset('storage/'. $actualite->image) }}">
+    <meta property="twitter:url" content="{{ route('guests:actualites:show', [$category, $actualite]) }}">
 @endsection
 
 @section('content')
@@ -18,6 +29,10 @@
             </ul>
         </div>
     </div>
+    @php
+        $author = new \App\Helpers\Author;
+    @endphp
+
     <section class="container">
         <div class="actualites-container">
             <div class="current-actualite-container">
@@ -29,7 +44,7 @@
                     <div class="current-actualite-category">{{ $actualite->category->name }}</div>
                     <div class="current-actualite-info">
                         <p class="current-actualite-date">{{ \Carbon\Carbon::parse($actualite->created_at)->locale('fr')->isoFormat('ll') . __(' par ') }}</p>
-                        <p class="current-actualite-author">{{ $actualite->authorable->name }}</p>
+                        <p class="current-actualite-author">{{ $author::getName($actualite->authorable) }}</p>
                     </div>
                     <div class="current-actualite-body">
                         {!! $actualite->body !!}
@@ -44,7 +59,7 @@
                         </figure>
                         <div class="actualites-content">
                             <div class="actualites-sub-header">
-                                <span class="actualites-author">{{ $actualite->authorable->name }}</span>,
+                                <span class="actualites-author">{{ $author::getName($actualite->authorable) }}</span>,
                                 <span class="actualites-published-at">{{ \Carbon\Carbon::parse($actualite->created_at)->locale("fr")->isoFormat("ll") }}</span>
                             </div>
                             <h2 class="actualites-title">{{ $actualite->title }}</h2>

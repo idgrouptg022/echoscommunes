@@ -60,7 +60,6 @@
 
 .current-actualite-image {
     width: 100%;
-    aspect-ratio: 2;
     background-color: #eee;
     border-radius: .5rem;
     margin-bottom: .7rem;
@@ -215,6 +214,7 @@
         flex-direction: row;
         column-gap: 1.5rem;
         row-gap: 1.5rem;
+        align-self: flex-start;
     }
 
     .actualites-item {

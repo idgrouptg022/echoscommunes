@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('assets/styles/guests/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/styles/guests/login.css') }}">
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}">
+    <link rel="icon" href="{{ asset('assets/images/o logo.png') }}">
     <title>ECHOS DES COMMUNES | CONNEXION</title>
 </head>
 <body>

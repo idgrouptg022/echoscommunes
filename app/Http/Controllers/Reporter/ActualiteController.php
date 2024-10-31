@@ -47,7 +47,7 @@ class ActualiteController extends Controller
 
         $category = Category::where('slug', $request->category)->first();
 
-        $fields["image"] = $request->file("image")->store("actualites/$category->name", "public");
+        $fields["image"] = $request->file("image")->store("actualites/$category->slug", "public");
 
         $fields["category_id"] = $category->id;
 
@@ -185,7 +185,7 @@ class ActualiteController extends Controller
                 Storage::disk("public")->delete($actualite->image);
             }
 
-            $fields["image"] = $request->file("image")->store("actualites/" . $actualite->category->name, "public");
+            $fields["image"] = $request->file("image")->store("actualites/" . $actualite->category->slug, "public");
         }
 
         $category = Category::where('slug', $request->category)->first();

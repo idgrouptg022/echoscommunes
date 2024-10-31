@@ -10,6 +10,9 @@
             <h1>{{ $category->name }}</h1>
         </div>
     </div>
+    @php
+        $author = new \App\Helpers\Author;
+    @endphp
     <section class="container">
         <div class="actualites-list">
             @forelse ($actualites as $actualite)
@@ -19,7 +22,7 @@
                     </figure>
                     <div class="actualites-content">
                         <div class="actualites-sub-header">
-                            <span class="actualites-author">{{ $actualite->authorable->name }}</span>,
+                            <span class="actualites-author">{{ $author::getName($actualite->authorable) }}</span>,
                             <span class="actualites-published-at">{{ \Carbon\Carbon::parse($actualite->created_at)->locale("fr")->isoFormat("ll") }}</span>
                         </div>
                         <h2 class="actualites-title">{{ $actualite->title }}</h2>
