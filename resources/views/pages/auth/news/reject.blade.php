@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="page__header__container">
-        <h2 class="page__header__title">Actualités rejetées</h2>
+        <h2 class="page__header__title">Actualités mises au brouillon</h2>
     </div>
 
     <div class="page__content__container">
@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $i }}</td>
                             <td>
-                                <span>{{ \Carbon\Carbon::parse($actualite->created_at)->format('d-m-Y') }}</span>
+                                <span>{{ \Carbon\Carbon::parse($actualite->publication_date)->format('d-m-Y') }}</span>
                             </td>
                             <td>{{ $actualite->title }}</td>
                             <td>{{ $actualite->authorable->name }}</td>

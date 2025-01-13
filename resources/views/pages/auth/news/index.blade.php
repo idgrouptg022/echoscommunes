@@ -62,7 +62,7 @@
                         <tr>
                             <td>{{ $i }}</td>
                             <td>
-                                <span>{{ \Carbon\Carbon::parse($actualite->created_at)->format('d-m-Y') }}</span>
+                                <span>{{ \Carbon\Carbon::parse($actualite->publication_date)->format('d-m-Y') }}</span>
                             </td>
                             <td>{{ $actualite->title }}</td>
                             <td>{{ $actualite->authorable->name }}</td>

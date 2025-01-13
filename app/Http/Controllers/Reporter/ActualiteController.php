@@ -24,7 +24,7 @@ class ActualiteController extends Controller
             ['status', 1],
             ['reject_motif', null],
             ['category_id', $category->id]
-        ])->latest()->paginate(20);
+        ])->orderByDesc('publication_date')->paginate(20);
 
         return view('pages.reporters.actualites.index', compact("category", "actualites"));
     }

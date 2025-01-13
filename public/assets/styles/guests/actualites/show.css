@@ -109,11 +109,13 @@
 }
 
 .actualites-list {
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     row-gap: 1.5rem;
+    border-top: 2px solid #ddd;
+    padding-top: 2rem;
 }
 
 .actualites-item {
@@ -215,6 +217,8 @@
         column-gap: 1.5rem;
         row-gap: 1.5rem;
         align-self: flex-start;
+        border-top: none;
+        padding-top: 0;
     }
 
     .actualites-item {

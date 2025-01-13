@@ -26,6 +26,10 @@
                 <input type="file" name="image" id="image" accept="image/*">
             </div>
             <div class="form-group">
+                <label for="pub-date">Date de l'article (optionnel)</label>
+                <input type="date" id="pub-date" name="publication_date">
+            </div>
+            <div class="form-group">
                 <label for="content">Contenu</label>
                 <textarea name="body" id="content" rows="10" placeholder="Contenu de l'actualité"></textarea>
             </div>

@@ -29,7 +29,7 @@
             <div class="actualite-content">
                 <h2 class="actualite-title">{{ $actualite->title }}</h2>
                 <div class="actualite-category">{{ $actualite->category->name }}</div>
-                <p class="actualite-date">{{ __('publié le ') . \Carbon\Carbon::parse($actualite->created_at)->locale('fr')->isoFormat('LL') }}</p>
+                <p class="actualite-date">{{ __('publié le ') . \Carbon\Carbon::parse($actualite->publication_date)->locale('fr')->isoFormat('LL') }}</p>
                 <p class="actualite-author">{{ __('-') . $actualite->authorable->name }}</p>
                 <div class="actualite-body">
                     {!! $actualite->body !!}

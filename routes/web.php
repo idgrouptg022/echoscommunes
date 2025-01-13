@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\Reporter\ActualiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NewsController;
-use App\Http\Controllers\Guest\MainController;
-use App\Http\Controllers\Auth\CategoriesController;
-use App\Http\Controllers\Auth\MainController as AuthMainController;
-use App\Http\Controllers\Auth\MessagesController;
 use App\Http\Controllers\Auth\UserController;
-use App\Http\Controllers\Guest\ActualiteController as GuestActualiteController;
+use App\Http\Controllers\Guest\MainController;
+use App\Http\Controllers\Auth\MessagesController;
 use App\Http\Controllers\Guest\ContactController;
+use App\Http\Controllers\Auth\ActuVideoController;
 use App\Http\Controllers\Guest\ReporterController;
+use App\Http\Controllers\Auth\CategoriesController;
+use App\Http\Controllers\Reporter\ActualiteController;
+use App\Http\Controllers\Auth\MainController as AuthMainController;
 use App\Http\Controllers\Reporter\MainController as ReporterMainController;
+use App\Http\Controllers\Guest\ActualiteController as GuestActualiteController;
 
 Route::prefix('/')->as('guests:')->group(function () {
     Route::get('', [MainController::class, 'home'])->name('home');
@@ -111,7 +112,7 @@ Route::middleware("check.auth.user")->prefix('auth/')->as('auth:')->group(functi
 
         Route::get("{category}/{actualite}/details", [NewsController::class, "show"])->name('show');
 
-        Route::patch("{actualite}/update", [NewsController::class, "update"])->name('update');
+        Route::patch("{actualite}/update/{actuInPending?}", [NewsController::class, "update"])->name('update');
 
         Route::post("{actualite}/validation", [NewsController::class, "accept"])->name('accept');
 
@@ -125,6 +126,18 @@ Route::middleware("check.auth.user")->prefix('auth/')->as('auth:')->group(functi
 
         Route::get('{contact}/show', [MessagesController::class, "show"])->name('show');
     });
+
+    Route::prefix("actu-videos/")->as("actuVideo:")->group(function() {
+
+        Route::get("", [ActuVideoController::class, "index"])->name("index");
+
+        Route::post("store", [ActuVideoController::class, "store"])->name("store");
+
+        Route::patch("{actuVideo}/update", [ActuVideoController::class, "update"])->name("update");
+
+        Route::delete("{actuVideo}/destroy", [ActuVideoController::class, "destroy"])->name("destroy");
+    });
+
 
     Route::prefix('administrateurs/')->as('users:')->group(function () {
         Route::get('', [UserController::class, "index"])->name('index');

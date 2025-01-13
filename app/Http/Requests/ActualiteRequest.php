@@ -24,7 +24,8 @@ class ActualiteRequest extends FormRequest
         return [
             "title" => "required|string|max:255",
             "image" => "nullable|file|image|mimes:png,jpg,jpeg,svg,webp",
-            "body" => "required|string"
+            "body" => "required|string",
+            "publication_date" => "nullable|date"
         ];
     }
 
@@ -38,7 +39,8 @@ class ActualiteRequest extends FormRequest
             "image.image" => "L'image de l'actualité doit être une image",
             "image.mimes" => "L'image de l'actualité doit être un fichier png, jpeg, jpg, svg, webp",
             "body.required" => "Le corps de l'actualité est obligatoire",
-            "body.string" => "Le corps de l'actualité est mal renseigné"
+            "body.string" => "Le corps de l'actualité est mal renseigné",
+            "publication_date.date" => "La date de publication de l'actualité est mal renseignée"
         ];
     }
 }

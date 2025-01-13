@@ -1,0 +1,96 @@
+.input__file {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.file__name {
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-align: center;
+    display: inline-flex;
+}
+
+textarea {
+    font-size: 1rem;
+    max-width: 100%;
+    resize: none;
+}
+
+.actuVideos {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.actuVideo-item {
+    flex-basis: calc(32% - 1rem);
+    width: 100%;
+    position: relative;
+}
+
+
+.actuVideo-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.actuVideo-item iframe {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.actuVideo-item .actuVideo-mask {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem .5rem;
+}
+
+.actuVideo-title {
+    color: var(--white-text);
+    font-size: .8rem;
+    font-family: montserratBold;
+    margin-bottom: .8rem;
+}
+
+.actuVideo-actions a{
+    text-decoration: none;
+    color: var(--white-text);
+    font-size: .8rem;
+    padding: .3rem .7rem;
+    border-radius: .5rem;
+}
+
+.actuVideo-actions a:first-of-type {
+    background-color: var(--secondary-600);
+    color: var(--black);
+}
+
+.actuVideo-actions a:last-of-type {
+    background-color: var(--danger-700);
+    margin-left: .5rem;
+}
+

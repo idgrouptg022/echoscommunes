@@ -8,7 +8,7 @@
 @section('content')
     <div class="page__header__container">
         <ol class="page-header-breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('auth:news:reject-view') }}">Actualités rejetées</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('auth:news:reject-view') }}">Actualités mises au brouillon</a></li>
             <li class="breadcrumb-item">Détails</li>
         </ol>
     </div>
@@ -26,7 +26,7 @@
             </form>
 
             <div class="reject-motif">
-                <h3 class="reject-motif-title">Le motif du rejet:</h3>
+                <h3 class="reject-motif-title">Le motif de la mise au brouillon:</h3>
                 {!! $actualite->reject_motif !!}
             </div>
         </div>
@@ -38,7 +38,7 @@
             <div class="actualite-content">
                 <h2 class="actualite-title">{{ $actualite->title }}</h2>
                 <div class="actualite-category">{{ $actualite->category->name }}</div>
-                <p class="actualite-date">{{ __('publié le ') . \Carbon\Carbon::parse($actualite->created_at)->locale('fr')->isoFormat('LL') }}</p>
+                <p class="actualite-date">{{ __('publié le ') . \Carbon\Carbon::parse($actualite->publication_date)->locale('fr')->isoFormat('LL') }}</p>
                 <p class="actualite-author">{{ __('-') . $actualite->authorable->name }}</p>
                 <div class="actualite-body">
                     {!! $actualite->body !!}

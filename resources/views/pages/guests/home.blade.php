@@ -104,8 +104,8 @@
                         </div>
                         <div class="firstAds-container">
                             <div class="youtube-news-container">
-                                <iframe src="https://www.youtube.com/embed/Wa9EmwJOps8" title="MESSAGE DE VŒUX DU MAIRE GOMADO À L&#39;OCCASION DU NOUVEL AN 2024" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <h5 class="ytb-news-title">Message de voeux du maire Gomado à l'occasion du nouvel an 2024</h5>
+                                <iframe src="https://www.youtube.com/embed/{{ $actu_video->link ?? '' }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <h5 class="ytb-news-title">{{ $actu_video->title }}</h5>
                             </div>
                             <div class="fb-news-container">
                                 <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FGouvTg%2Fposts%2Fpfbid07UFB9bJF8nFasWDnmPWWddf6EWSAp71eXgynAFhK5QDbLytaK9TTfS4J2CsqV4YXl&show_text=true&width=470" width="500" height="709" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Actualite;
+use App\Models\ActuVideo;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 
@@ -19,8 +20,9 @@ class MainController extends Controller
         ->distinct()
         ->take(4)
         ->get();
+        $actu_video = ActuVideo::latest()->first();
         $page = "home";
-        return view('pages.guests.home', compact('banner_news', 'page', 'newsCategories'));
+        return view('pages.guests.home', compact('banner_news', 'page', 'newsCategories', 'actu_video'));
     }
 
     public function about(): View

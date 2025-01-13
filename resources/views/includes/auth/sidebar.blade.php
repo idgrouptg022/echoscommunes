@@ -64,12 +64,21 @@
                 </ul>
             </li>
             <li>
-                <a href="{{ route('auth:news:reject-view') }}" title="Actualites rejetées" class="tooltip">
+                <a href="{{ route('auth:news:reject-view') }}" title="Actualités au brouillon" class="tooltip">
                     <svg style="width:24px; height:24px; fill:#fff;"  viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                         <path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"></path>
                     </svg>
-                    <span class="link hide">Actualites rejetées</span>
-                    <span class="tooltip__content">Actualites rejetées</span>
+                    <span class="link hide">Actualités au brouillon</span>
+                    <span class="tooltip__content">Actualités au brouillon</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('auth:actuVideo:index') }}" title="Actu vidéos" class="tooltip">
+                    <svg style="width:24px; height:24px; fill:#fff;" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+                    </svg>
+                    <span class="link hide">Actu vidéos</span>
+                    <span class="tooltip__content">Actu vidéos</span>
                 </a>
             </li>
             <li>

@@ -22,7 +22,7 @@ class NewsController extends Controller
         $actualites = $category->news()->where([
             ['status', 1],
             ['reject_motif', null]
-        ])->latest()->paginate(20);
+        ])->orderByDesc('publication_date')->paginate(20);
 
         $user = User::where("login_token", session()->get('authenticate_token'))->first();
 
@@ -59,6 +59,10 @@ class NewsController extends Controller
             return redirect()->route("auth:login");
         }
 
+        if (!$request->input("publication_date")) {
+            $fields["publication_date"] = now();
+        }
+
         $user->actualites()->create($fields);
 
         return redirect()->route('auth:news:index', $category)->with('success', "L'actualité a été bien ajoutée et publiée");
@@ -74,20 +78,28 @@ class NewsController extends Controller
         return view('pages.auth.news.edit', compact('actualite', 'category'));
     }
 
-    public function update(ActualiteRequest $request, Actualite $actualite): RedirectResponse
+    public function update(ActualiteRequest $request, Actualite $actualite, $actuInPending = null): RedirectResponse
     {
         $fields = $request->validated();
 
         if ($request->hasFile('image')) {
 
-            if (Storage::disk("public")->exists($actualite->image)) {
+            if ($actualite->image != null && Storage::disk("public")->exists($actualite->image)) {
                 Storage::disk("public")->delete($actualite->image);
             }
 
             $fields["image"] = $request->file("image")->store("actualites/" . $actualite->category->slug, "public");
         }
 
+        if (!$request->input("publication_date")) {
+            $fields["publication_date"] = now();
+        }
+
         $actualite->update($fields);
+
+        if ($actuInPending) {
+            return redirect()->route('auth:news:in-pending-show', $actualite)->with('success', "L'actualité a bien été éditée");
+        }
 
         return redirect()->route('auth:news:edit', [$actualite->category, $actualite])->with("success", "La modification a bien été effectuée");
     }
@@ -138,6 +150,10 @@ class NewsController extends Controller
 
         $actualite->reject_motif = null;
 
+        if ($actualite->publication_date == null) {
+            $actualite->publication_date = $actualite->created_at;
+        }
+
         $actualite->save();
 
         $email = $actualite->authorable->email;
@@ -166,6 +182,11 @@ class NewsController extends Controller
         ]);
 
         $actualite->reject_motif = $request->motif_reject;
+
+        if ($actualite->publication_date == null) {
+            $actualite->publication_date = $actualite->created_at;
+        }
+
         $actualite->save();
 
         $email = $actualite->authorable->email;
@@ -179,8 +200,8 @@ class NewsController extends Controller
             "motif_reject" => $actualite->reject_motif
         ];
 
-        Event::dispatch(new RejectActualiteEvent($data));
+        // Event::dispatch(new RejectActualiteEvent($data));
 
-        return redirect()->route('auth:news:reject-view')->with('success', "L'article a bien été rejeté");
+        return redirect()->route('auth:news:reject-view')->with('success', "L'article a bien été mise au brouillon");
     }
 }

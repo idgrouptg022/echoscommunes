@@ -17,7 +17,7 @@
 
         @include('includes.auth.flash')
 
-        <form action="{{ route('auth:news:update', $actualite) }}" class="editForm" method="post" enctype="multipart/form-data">
+        <form action="{{ route('auth:news:update', [$actualite, false]) }}" class="editForm" method="post" enctype="multipart/form-data">
             @csrf
             @method("PATCH")
             <div class="form-header">
@@ -36,6 +36,10 @@
                     <div class="form-group">
                         <label for="image">Image</label>
                         <input type="file" name="image" id="image" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="pub-date">Date de l'article (optionnel)</label>
+                        <input type="date" id="pub-date" name="publication_date" value="{{ $actualite->publication_date != null ? \Carbon\Carbon::parse($actualite->publication_date)->format('Y-m-d') : '' }}">
                     </div>
                     <div class="form-group">
                         <label for="content">Contenu</label>
@@ -67,7 +71,7 @@
             $('#content').summernote({
                 placeholder: "Contenu de l'actualité...",
                 lang: 'fr-FR',
-                height: 300,
+                height: 400,
                 toolbar: [
                     ['style', ['style']],
                     ['font', ['bold', 'italic', 'underline', 'clear']],
